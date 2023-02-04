@@ -56,6 +56,8 @@ h2 {
 }
 
 p {
+    font-size: 1.4rem;
+    line-height: 1.25em;
     margin: var(--sVPVmargin);
 }
 
@@ -143,12 +145,22 @@ main img {
         margin-bottom: .5em;
     }
 
+    p {
+        font-size: clamp(1.4rem, 1.8vw, 1.8rem);
+        line-height: 1.5em;
+    }
+
     #pageHeader {
         width: 100%;
+        min-height: 20vw;
+        background: url(/img/LanzaroteBanner.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: bottom;
     }
 
     #pageHeader h1 {
-        font-size: clamp(4rem, 10vw, 6rem);
+        font-size: clamp(4rem, 10vw, 8rem);
     }
 
     #pageNav {
@@ -178,6 +190,19 @@ main img {
 @media screen and (min-width: 83em) {
     #pageWrapper {
         margin: 0 auto;
+    }
+
+    #pageHeader {
+        height: clamp(5rem, 20vw, 20rem);
+        min-height: 0;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #pageHeader p {
+        align-self: flex-start;
     }
 
     .pageNavLink {
