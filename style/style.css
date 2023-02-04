@@ -8,6 +8,9 @@
     --contentFontColor: #2B0008;
     
     /* settings */
+    --borderR: 1rem;
+    --borderPattern: 0 var(--borderR) 0 var(--borderR);
+
     --sVPmargin: .25rem;
     --sVPVmargin: var(--sVPmargin) 0;
     --sVPHmargin: 0 calc(var(--sVPmargin) * 2);
@@ -42,7 +45,7 @@ body > * {
 }
 
 #pageWrapper {
-    max-width: 82rem;
+    max-width: 192rem;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -53,6 +56,10 @@ h1, h2, h3, h4, h5, h6 {
 
 h2 {
     font-size: var(--sVPtitleFontSize);
+}
+
+h3 {
+    font-size: calc(var(--sVPtitleFontSize) * .85);
 }
 
 p {
@@ -110,12 +117,15 @@ p {
     color: white;
     background-color: var(--canarianBlue);
     padding: .5rem;
-    border-bottom-left-radius: .5rem;
-    border-top-right-radius: .5rem;
+    border-radius: var(--borderPattern);
 }
 
 main {
     padding: var(--sVPHmargin);
+}
+
+.mainSection {
+    margin-bottom: 2rem;
 }
 
 figure {
@@ -130,8 +140,25 @@ figcaption {
 main img {
     width: 100%;
     max-width: 500px;
-    border-bottom-left-radius: .5rem;
-    border-top-right-radius: .5rem;
+    border-radius: var(--borderPattern);
+}
+
+#locations .seCont {
+    display: flex;
+    flex-direction: column;
+    gap: var(--mVPgap);
+}
+
+.secArt {
+    color: var(--sand);
+    background-color: var(--contentFontColor);
+    padding: var(--mVPmargin);
+    border: solid var(--sVPmargin) var(--canarianGreen);
+    border-radius: var(--borderPattern);
+}
+
+#artContainer {
+    margin: 2rem 0;
 }
 
 @media screen and (min-width: 38em) {
@@ -143,6 +170,11 @@ main img {
 
     h2 {
         font-size: clamp(var(--sVPtitleFontSize), 5vw, 5.5rem);
+        margin-bottom: .5em;
+    }
+
+    h3 {
+        font-size: clamp(calc(var(--sVPtitleFontSize) * .85), 4vw, 3rem);
         margin-bottom: .5em;
     }
 
@@ -186,20 +218,24 @@ main img {
         flex: 1;
     }
 
+    .mainSection {
+        margin-bottom: 4rem;
+    }
+
     figure {
         float: left;
         margin: 0 1rem 0 0;
     }
     
     #locations .seCont {
-        display: flex;
+        flex-direction: row;
         justify-content: space-between;
         flex-wrap: wrap;
         gap: var(--mVPgap);
     }
 
     .secArt {
-        flex: 1 1 49%;
+        flex: 1 0 25rem;
     }
 
     #locations .seCont > .contTxt {
@@ -226,11 +262,30 @@ main img {
         align-self: flex-start;
     }
 
+    #pageNav {
+        width: 15%;
+    }
+
     .pageNavLink {
         transition: color 250ms ease-in-out;
     }
 
     .pageNavLink:hover {
         color: var(--canarianGreen);
+    }
+
+    .artContent figure {
+        max-width: 50%;
+        float: left;
+    }
+
+    .seCont {
+        max-width: 50%;
+        margin: 0 auto;
+    }
+
+    #artContainer {
+        max-width: 100%;
+        width: 100%;
     }
 }
