@@ -1,5 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Nunito:ital,wght@0,200;0,400;0,600;0,900;1,200;1,400;1,600;1,900&display=swap');
 
+:root {
+    /* colors */
+    --sand: #FFEBE0;
+    --canarianGreen: #00A017;
+    --canarianBlue: #0F45AE;
+    --contentFontColor: #2B0008;
+    /* settings */
+    --sVPmargin: .25rem 0;
+    --sVPgap: .25rem;
+}
+
 html {
     box-sizing: border-box;
 }
@@ -13,15 +24,62 @@ html {
 body {
     font-family: 'Nunito', sans-serif;
     font-size: 10px;
+    color: var(--contentFontColor);
+    background-color: var(--sand);
     padding: 0;
     margin: 0;
 }
 
 body > * {
     font-size: 1.2rem;
-    padding: 0 1rem;
+    padding: 0 .5rem;
 }
 
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Kaushan Script', cursive;
+    margin: var(--sVPmargin);
+}
+
+p {
+    margin: var(--sVPmargin);
+}
+
+#pageHeader h1 {
+    font-size: 2.25rem;
+    text-align: center;
+}
+
+#pageHeader p {
+    font-size: .8rem;
+    color: lightgray;
+}
+
+#pageNav {
+    position: sticky;
+    top: 0;
+}
+
+#pageNav ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-evenly;
+    gap: var(--sVPgap);
+    padding: 0;
+}
+
+#pageNav li {
+    display: block;
+}
+
+.pageNavLink {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 900;
+    color: white;
+    background-color: var(--canarianBlue);
+    padding: .5rem;
+    border-bottom-left-radius: .5rem;
+    border-top-right-radius: .5rem;
 }
