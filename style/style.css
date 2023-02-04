@@ -7,8 +7,9 @@
     --canarianBlue: #0F45AE;
     --contentFontColor: #2B0008;
     /* settings */
-    --sVPmargin: .25rem 0;
-    --sVPgap: .25rem;
+    --sVPVmargin: .25rem 0;
+    --sVPHmargin: 0 .5rem;
+    --sVPgap: .125rem;
 }
 
 html {
@@ -32,16 +33,20 @@ body {
 
 body > * {
     font-size: 1.2rem;
-    padding: 0 .5rem;
 }
 
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Kaushan Script', cursive;
-    margin: var(--sVPmargin);
+    margin: 0;
 }
 
 p {
-    margin: var(--sVPmargin);
+    margin: var(--sVPVmargin);
+}
+
+#pageHeader {
+    background-color: var(--canarianGreen);
+    padding: var(--sVPHmargin);
 }
 
 #pageHeader h1 {
@@ -57,14 +62,17 @@ p {
 #pageNav {
     position: sticky;
     top: 0;
+    padding: var(--sVPVmargin);
 }
 
 #pageNav ul {
     list-style: none;
     display: flex;
     justify-content: space-evenly;
+    flex-wrap: wrap;
     gap: var(--sVPgap);
-    padding: 0;
+    padding: var(--sVPHmargin);
+    margin: 1rem 0;
 }
 
 #pageNav li {
@@ -82,4 +90,8 @@ p {
     padding: .5rem;
     border-bottom-left-radius: .5rem;
     border-top-right-radius: .5rem;
+}
+
+main {
+    padding: var(--sVPHmargin);
 }
