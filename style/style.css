@@ -69,6 +69,7 @@ p {
 #pageHeader h1 {
     font-size: var(--sVPtitleFontSize);
     text-align: center;
+    text-shadow: .05em .05em white;
     color: var(--canarianBlue);
 }
 
@@ -177,6 +178,10 @@ main img {
         padding: var(--mVPmargin);
     }
 
+    .pageNavLink {
+        font-size: clamp(1rem, 1.8vw, 1.8rem);
+    }
+
     main {
         flex: 1;
     }
@@ -184,7 +189,23 @@ main img {
     figure {
         float: left;
         margin: 0 1rem 0 0;
-    }    
+    }
+    
+    #locations .seCont {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: var(--mVPgap);
+    }
+
+    .secArt {
+        flex: 1 1 49%;
+    }
+
+    #locations .seCont > .contTxt {
+        width: 100%;
+    }
+
 }
 
 @media screen and (min-width: 83em) {
