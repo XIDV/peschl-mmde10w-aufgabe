@@ -12,8 +12,9 @@
     --sVPVmargin: var(--sVPmargin) 0;
     --sVPHmargin: 0 calc(var(--sVPmargin) * 2);
     --sVPgap: .125rem;
+    --sVPtitleFontSize: 2.25rem;
 
-    --mVPmargin: calc(var(--sVPmargin) * 4) calc(var(--sVPmargin) * 2);
+    --mVPmargin: calc(var(--sVPmargin) * 4) calc(var(--sVPmargin) * 2 + var(--sVPmargin)) calc(var(--sVPmargin) * 4) calc(var(--sVPmargin) * 2);
     --mVPgap: calc(var(--sVPgap) * 5);
 }
 
@@ -50,6 +51,10 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0;
 }
 
+h2 {
+    font-size: var(--sVPtitleFontSize);
+}
+
 p {
     margin: var(--sVPVmargin);
 }
@@ -60,9 +65,9 @@ p {
 }
 
 #pageHeader h1 {
-    font-size: 2.25rem;
+    font-size: var(--sVPtitleFontSize);
     text-align: center;
-    color: var(--contentFontColor);
+    color: var(--canarianBlue);
 }
 
 #pageHeader p {
@@ -76,6 +81,7 @@ p {
     top: 0;
     background-color: var(--sand);
     padding: var(--sVPVmargin);
+    border-bottom: solid var(--sVPmargin) var(--canarianBlue);
 }
 
 #pageNav ul {
@@ -132,6 +138,11 @@ main img {
         gap: var(--mVPgap);
     }
 
+    h2 {
+        font-size: clamp(var(--sVPtitleFontSize), 5vw, 5.5rem);
+        margin-bottom: .5em;
+    }
+
     #pageHeader {
         width: 100%;
     }
@@ -142,6 +153,8 @@ main img {
 
     #pageNav {
         width: 20%;
+        border-bottom: none;
+        border-right: solid var(--sVPmargin) var(--canarianBlue);
     }
 
     #pageNav ul {
