@@ -105,7 +105,21 @@ p {
 }
 
 #pageNav li {
+    position: relative;
     display: block;
+    border: solid calc(var(--sVPmargin) / 2) var(--canarianBlue);
+    border-radius: var(--borderPattern);
+    overflow: hidden;
+}
+
+.nlbg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: var(--canarianBlue);
+    transform: translateX(-100%);
+    transition: transform 250ms ease-in-out;
+    z-index: -1;
 }
 
 .pageNavLink {
@@ -114,10 +128,9 @@ p {
     text-decoration: none;
     font-size: 1rem;
     font-weight: 900;
-    color: white;
-    background-color: var(--canarianBlue);
-    padding: .5rem;
-    border-radius: var(--borderPattern);
+    font-style: italic;
+    color: var(--contentFontColor);
+    padding: .275rem;
 }
 
 main {
@@ -125,6 +138,7 @@ main {
 }
 
 .mainSection {
+    padding-top: 4.5rem;
     margin-bottom: 2rem;
 }
 
@@ -199,7 +213,6 @@ main img {
     #pageNav {
         width: 20%;
         border-bottom: none;
-        border-right: solid var(--sVPmargin) var(--canarianBlue);
     }
 
     #pageNav ul {
@@ -212,6 +225,7 @@ main img {
 
     .pageNavLink {
         font-size: clamp(1rem, 1.8vw, 1.8rem);
+        padding: .5rem;
     }
 
     main {
@@ -219,6 +233,7 @@ main img {
     }
 
     .mainSection {
+        padding-top: 0;
         margin-bottom: 4rem;
     }
 
@@ -270,8 +285,12 @@ main img {
         transition: color 250ms ease-in-out;
     }
 
-    .pageNavLink:hover {
-        color: var(--canarianGreen);
+    #pageNav li:hover .pageNavLink {
+        color: white;
+    }
+
+    #pageNav li:hover .nlbg {
+        transform: translateX(0);
     }
 
     .artContent figure {
