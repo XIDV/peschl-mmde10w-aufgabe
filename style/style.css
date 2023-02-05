@@ -15,14 +15,15 @@
     --sVPVmargin: var(--sVPmargin) 0;
     --sVPHmargin: 0 calc(var(--sVPmargin) * 2);
     --sVPgap: .125rem;
-    --sVPtitleFontSize: 2.25rem;
+    --sVPtitleFontSize: 4.25rem;
 
-    --mVPmargin: calc(var(--sVPmargin) * 4) calc(var(--sVPmargin) * 2 + var(--sVPmargin)) calc(var(--sVPmargin) * 4) calc(var(--sVPmargin) * 2);
+    --mVPmargin: calc(var(--sVPmargin) * 4) calc(var(--sVPmargin) * 2);
     --mVPgap: calc(var(--sVPgap) * 5);
 }
 
 html {
     box-sizing: border-box;
+    font-size: 10px;
 }
 
 *,
@@ -33,7 +34,6 @@ html {
 
 body {
     font-family: 'Nunito', sans-serif;
-    font-size: 10px;
     color: var(--contentFontColor);
     background-color: var(--sand);
     padding: 0;
@@ -41,11 +41,11 @@ body {
 }
 
 body > * {
-    font-size: 1.2rem;
+    font-size: 2.25rem;
 }
 
 #pageWrapper {
-    max-width: 192rem;
+    /* max-width: 192rem; */
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -63,7 +63,6 @@ h3 {
 }
 
 p {
-    font-size: 1.4rem;
     line-height: 1.25em;
     margin: var(--sVPVmargin);
 }
@@ -126,11 +125,11 @@ p {
     display: block;
     text-align: center;
     text-decoration: none;
-    font-size: 1rem;
+    font-size: 1.5rem;
     font-weight: 900;
     font-style: italic;
     color: var(--contentFontColor);
-    padding: .275rem;
+    padding: .3rem;
 }
 
 main {
@@ -148,7 +147,7 @@ figure {
 
 figcaption {
     font-family: 'Kaushan Script', cursive;
-    font-size: 1rem;
+    font-size: 1.25rem;
 }
 
 main img {
@@ -163,19 +162,23 @@ main img {
     gap: var(--mVPgap);
 }
 
+.artContainer {
+    background-color: #0F45AE;
+    padding: 2rem;
+    border-radius: var(--borderPattern);
+    margin: 2rem 0;
+}
+
 .secArt {
     color: var(--contentFontColor);
-    /* background-color: var(--contentFontColor); */
+    background-color: var(--sand);
     padding: var(--mVPmargin);
     border: solid var(--sVPmargin) var(--canarianGreen);
     border-radius: var(--borderPattern);
 }
 
-#artContainer {
-    margin: 2rem 0;
-}
 
-@media screen and (min-width: 38em) {
+@media screen and (min-width: 48em) {
     #pageWrapper {
         display: flex;
         flex-wrap: wrap;
@@ -193,7 +196,7 @@ main img {
     }
 
     p {
-        font-size: clamp(1.4rem, 1.8vw, 1.8rem);
+        font-size: clamp(2.25rem, 2vw, 3rem);
         line-height: 1.5em;
     }
 
@@ -207,7 +210,7 @@ main img {
     }
 
     #pageHeader h1 {
-        font-size: clamp(4rem, 10vw, 8rem);
+        font-size: clamp(4rem, 10vw, 12rem);
     }
 
     #pageNav {
@@ -224,7 +227,7 @@ main img {
     }
 
     .pageNavLink {
-        font-size: clamp(1rem, 1.8vw, 1.8rem);
+        font-size: clamp(1.8rem, 1.8vw, 2.6rem);
         padding: .5rem;
     }
 
@@ -239,7 +242,7 @@ main img {
 
     figure {
         float: left;
-        margin: 0 1rem 0 0;
+        margin: 1.5rem 1.5rem 1.5rem 0;
     }
     
     #locations .seCont {
@@ -250,7 +253,7 @@ main img {
     }
 
     .secArt {
-        flex: 1 0 25rem;
+        flex: 1 0 30rem;
     }
 
     #locations .seCont > .contTxt {
@@ -259,13 +262,13 @@ main img {
 
 }
 
-@media screen and (min-width: 83em) {
+@media screen and (min-width: 64em) {
     #pageWrapper {
         margin: 0 auto;
     }
 
     #pageHeader {
-        height: clamp(5rem, 20vw, 20rem);
+        height: clamp(5rem, 30vw, 35rem);
         min-height: 0;
         display: flex;
         justify-content: center;
@@ -293,18 +296,32 @@ main img {
         transform: translateX(0);
     }
 
+    h2 {
+        text-align: center;
+    }
+
+    .artContainer {
+        padding: 4rem;
+    }
+
     .artContent figure {
         max-width: 50%;
         float: left;
     }
 
     .seCont {
-        max-width: 48rem;
+        max-width: 100rem;
         margin: 0 auto;
     }
 
-    #artContainer {
+    .artContainer {
         max-width: 100%;
         width: 100%;
+    }
+}
+
+@media screen and (min-width: 120em) {
+    #pageHeader {
+        background-position: 50% center;
     }
 }
