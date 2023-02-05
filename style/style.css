@@ -164,8 +164,8 @@ main img {
 }
 
 .secArt {
-    color: var(--sand);
-    background-color: var(--contentFontColor);
+    color: var(--contentFontColor);
+    /* background-color: var(--contentFontColor); */
     padding: var(--mVPmargin);
     border: solid var(--sVPmargin) var(--canarianGreen);
     border-radius: var(--borderPattern);
