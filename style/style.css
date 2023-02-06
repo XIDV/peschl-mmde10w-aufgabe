@@ -2,23 +2,25 @@
 
 :root {
     /* colors */
-    --sand: #FFEBE0;
+    --sand: #FFF6F1;
     --canarianGreen: #00A017;
     --canarianBlue: #0F45AE;
+    --canarianBlueB: #092968;
     --contentFontColor: #2B0008;
+    --canarianBlueGrad: linear-gradient(45deg, var(--canarianBlue), var(--canarianBlueB));
     
     /* settings */
-    --borderR: 1rem;
+    --borderR: 2rem;
     --borderPattern: 0 var(--borderR) 0 var(--borderR);
 
     --sVPmargin: .25rem;
     --sVPVmargin: var(--sVPmargin) 0;
     --sVPHmargin: 0 calc(var(--sVPmargin) * 2);
-    --sVPgap: .125rem;
+    --sVPgap: .75rem;
     --sVPtitleFontSize: 4.25rem;
 
-    --mVPmargin: calc(var(--sVPmargin) * 4) calc(var(--sVPmargin) * 2);
-    --mVPgap: calc(var(--sVPgap) * 5);
+    --mVPmargin: calc(var(--sVPmargin) * 4);
+    --mVPgap: calc(var(--sVPgap) * 2.5);
 }
 
 html {
@@ -42,10 +44,6 @@ body {
 
 body > * {
     font-size: 2.25rem;
-}
-
-#pageWrapper {
-    /* max-width: 192rem; */
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -106,6 +104,7 @@ p {
 #pageNav li {
     position: relative;
     display: block;
+    max-width: 30rem;
     border: solid calc(var(--sVPmargin) / 2) var(--canarianBlue);
     border-radius: var(--borderPattern);
     overflow: hidden;
@@ -129,7 +128,7 @@ p {
     font-weight: 900;
     font-style: italic;
     color: var(--contentFontColor);
-    padding: .3rem;
+    padding: .75rem;
 }
 
 main {
@@ -142,12 +141,16 @@ main {
 }
 
 figure {
-    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 2rem 0;
 }
 
 figcaption {
     font-family: 'Kaushan Script', cursive;
-    font-size: 1.25rem;
+    font-size: 1.75rem;
+    color: var(--canarianBlueB);
 }
 
 main img {
@@ -156,14 +159,11 @@ main img {
     border-radius: var(--borderPattern);
 }
 
-#locations .seCont {
+.artContainer {
     display: flex;
     flex-direction: column;
-    gap: var(--mVPgap);
-}
-
-.artContainer {
-    background-color: #0F45AE;
+    gap: var(--sVPgap);
+    background: var(--canarianBlueGrad);
     padding: 2rem;
     border-radius: var(--borderPattern);
     margin: 2rem 0;
@@ -173,7 +173,6 @@ main img {
     color: var(--contentFontColor);
     background-color: var(--sand);
     padding: var(--mVPmargin);
-    border: solid var(--sVPmargin) var(--canarianGreen);
     border-radius: var(--borderPattern);
 }
 
@@ -222,8 +221,13 @@ main img {
         position: sticky;
         top: 0;
         flex-direction: column;
+        align-items: center;
         gap: var(--mVPgap);
         padding: var(--mVPmargin);
+    }
+
+    #pageNav li {
+        width: clamp(15rem, 10vw, 30rem);
     }
 
     .pageNavLink {
@@ -245,7 +249,7 @@ main img {
         margin: 1.5rem 1.5rem 1.5rem 0;
     }
     
-    #locations .seCont {
+    .artContainer {
         flex-direction: row;
         justify-content: space-between;
         flex-wrap: wrap;
@@ -253,13 +257,8 @@ main img {
     }
 
     .secArt {
-        flex: 1 0 30rem;
+        flex: 1 0 35rem;
     }
-
-    #locations .seCont > .contTxt {
-        width: 100%;
-    }
-
 }
 
 @media screen and (min-width: 64em) {
@@ -282,6 +281,7 @@ main img {
 
     #pageNav {
         width: 15%;
+        background: none;
     }
 
     .pageNavLink {
@@ -300,7 +300,14 @@ main img {
         text-align: center;
     }
 
+    .seCont {
+        max-width: 100rem;
+        margin: 0 auto;
+    }
+
     .artContainer {
+        width: 100%;
+        max-width: 180rem;
         padding: 4rem;
     }
 
@@ -308,20 +315,30 @@ main img {
         max-width: 50%;
         float: left;
     }
-
-    .seCont {
-        max-width: 100rem;
-        margin: 0 auto;
-    }
-
-    .artContainer {
-        max-width: 100%;
-        width: 100%;
-    }
 }
 
 @media screen and (min-width: 120em) {
+    body {
+        background: url(/img/compass-2946958_1920.png);
+        background-attachment: fixed;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
     #pageHeader {
-        background-position: 50% center;
+        background-position: 50% 65%;
+    }
+
+    #pageNav {
+        width: 25%;
+        align-items: flex-end;
+    }
+
+    #mainContentWrapper {
+        max-width: 190rem;
+    }
+
+    #pageNav ul {
+        align-items: flex-end;
     }
 }
